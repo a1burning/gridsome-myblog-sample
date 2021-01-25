@@ -1,0 +1,74 @@
+<template>
+  <Layout>
+    <!-- Page Header -->
+    <header class="masthead" :style="{
+      backgroundImage: `url(${GRIDSOME_API_URL + $page.post.cover.url})`
+    }">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="post-heading">
+              <!-- 标题 -->
+              <h1>{{ $page.post.title }}</h1>
+              <!-- <h2 class="subheading">Problems look mighty small from 150 miles up</h2> -->
+              <!-- 作者、时间 -->
+              <span class="meta">Posted by
+                <a href="#">{{ $page.post.author.firstname + $page.post.author.lastname }}</a>
+              on {{ $page.post.created_at }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto" v-html="mdToHtml($page.post.content)">
+          </div>
+        </div>
+      </div>
+    </article>
+  </Layout>
+</template>
+
+<page-query>
+query ($id: ID!){
+  post: strapiPost (id: $id) {
+    id
+    title
+    content
+    cover {
+      url
+    }
+    tags {
+      id
+      title
+    }
+    author {
+      firstname
+      lastname
+    }
+    created_at
+  }
+}
+</page-query>
+
+<script>
+import MarkdownIt from 'markdown-it'
+const md = new MarkdownIt()
+export default {
+  name:'PostPage',
+  methods: {
+    mdToHtml (markdown) {
+      return md.render(markdown)
+    }
+  }
+}
+</script>
+
+<style>
+
+</style>
