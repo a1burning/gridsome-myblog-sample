@@ -1,14 +1,12 @@
-# Default starter for Gridsome
+## 1. Setup
+- npm install
+- npm run develop
 
-This is the project you get when you run `gridsome create new-project`.
+## 2. Vercel-link
+- https://gridsome-myblog-sample.vercel.app/
+- Cannot axios
 
-### 1. Install Gridsome CLI tool if you don't have
+## 3. Server-link
+- http://hu77blog-gridsome.hu77.top/
 
-`npm install --global @gridsome/cli`
-
-### 2. Create a Gridsome project
-
-1. `gridsome create my-gridsome-site` to install default starter
-2. `cd my-gridsome-site` to open the folder
-3. `gridsome develop` to start a local dev server at `http://localhost:8080`
-4. Happy coding 🎉🙌
+Happy coding 🎉🙌
