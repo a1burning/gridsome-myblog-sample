@@ -70,5 +70,8 @@ export default {
 </script>
 
 <style>
+p img {
+  width: 100%
+}
 
 </style>
